@@ -1,0 +1,25 @@
+grammar org.xtext.example.minhadsl.Clima with org.eclipse.xtext.common.Terminals
+
+generate clima "http://www.xtext.org/example/minhadsl/Clima"
+
+dadosClima:
+	baseDados+=Clima*;
+	
+Clima:
+	'Clima' cidade=ID dataInicio=DATE dataFim=DATE '#';
+
+DATE: 
+	DAY'/'MONTH'/'YEAR
+;
+
+terminal DAY:
+	('0')('1'..'9') | ('1')('0'..'9') | ('2')('0'..'9') | ('3')('0'..'1')
+;
+
+terminal MONTH:
+	  'Jan' | 'Fev'	| 'Mar'	| 'Abr'	| 'Mai'	| 'Jun'	| 'Jul'	| 'Ago'	| 'Set'	| 'Out'	| 'Nov'| 'Dez'
+;
+
+terminal YEAR:
+	('2')('0')('0'..'2')('0'..'1')
+;
